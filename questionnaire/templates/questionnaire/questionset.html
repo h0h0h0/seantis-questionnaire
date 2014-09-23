@@ -29,6 +29,13 @@
     {% endfor %}
 {% endblock %}
 
+{% block imagelarge %}
+	{% if questionset.image_top and questionset.image_top.strip %}
+        <img src="/static/{{ questionset.image_top }}" class="img-responsive" alt="Responsive image"/>
+	{% endif %}
+{% endblock %}
+
+
 {% block content %}
 
     {% if progress %}

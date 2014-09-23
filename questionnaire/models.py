@@ -96,6 +96,7 @@ class QuestionSet(models.Model):
     questionnaire = models.ForeignKey(Questionnaire)
     sortid = models.IntegerField() # used to decide which order to display in
     heading = models.CharField(max_length=64)
+    image_top = models.CharField(max_length=256, blank=True)
     checks = models.CharField(max_length=128, blank=True,
         help_text = """Current options are 'femaleonly' or 'maleonly' and shownif="QuestionNumber,Answer" which takes the same format as <tt>requiredif</tt> for questions.""")
     text = models.TextField(help_text="This is interpreted as Textile: <a href='http://hobix.com/textile/quick.html'>http://hobix.com/textile/quick.html</a>")
@@ -352,6 +353,7 @@ class Question(models.Model):
                 raise Exception("When using custom types, you must have type=<name> in the additional checks field")
             return cd.get('type')
         return t
+
 
     def questioninclude(self):
         return "questionnaire/" + self.get_type() + ".html"

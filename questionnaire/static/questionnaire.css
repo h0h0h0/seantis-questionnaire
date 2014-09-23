@@ -119,3 +119,13 @@ input.sending {
          -o-transition: 0.3s linear all !important;
             transition: 0.3s linear all !important;   
 }
+
+.image-questionnaire {
+
+}
+
+/* resize images */
+.image-questionnaire img {
+    width: 100%;
+    height: auto;
+}
