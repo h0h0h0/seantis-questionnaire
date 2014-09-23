@@ -90,7 +90,9 @@
             </div> <!-- /question container -->
             {% if question.footer %}
                 <div class="question-footer">
-                    {{ question.footer }}
+					{% autoescape off %}
+						{{ qdict.footer_formatted }}
+					{% endautoescape %}
                     <div class="clearfix"></div>
                 </div>
             {% endif %}

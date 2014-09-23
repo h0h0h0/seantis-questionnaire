@@ -26,7 +26,7 @@ import logging
 import random
 from hashlib import md5
 import re
-
+import textile
 
 try:
     use_session = settings.QUESTIONNAIRE_USE_SESSION
@@ -546,6 +546,8 @@ def show_questionnaire(request, runinfo, errors={}):
             'css_style': '' if question_visible else 'display:none;',
             'template' : 'questionnaire/%s.html' % (Type),
             'qnum' : _qnum,
+            'footer_regular' : question.footer ,
+            'footer_formatted' : textile.textile( str(question.footer) ),
             'qalpha' : _qalpha,
             'qtype' : Type,
             'qnum_class' : (_qnum % 2 == 0) and " qeven" or " qodd",
