@@ -4,6 +4,12 @@
     {{ block.super }} - {{ page.title }}
 {% endblock %}
 
+{% block imagelarge %}
+	{% if page.image_top and page.image_top.strip %}
+        <img src="/static/{{ page.image_top }}" class="img-responsive" alt="Responsive image"/>
+	{% endif %}
+{% endblock %}
+
 {% block content %}
     {{ page.body }}
     {% if user.is_authenticated %}

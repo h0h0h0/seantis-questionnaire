@@ -9,7 +9,8 @@ class Page(models.Model):
     title = models.CharField(max_length=256)
     body = models.TextField()
     public = models.BooleanField(default=True)
-
+    image_top = models.CharField(max_length=256)
+    
     def __unicode__(self):
         return u"Page[%s]" % self.slug
 
